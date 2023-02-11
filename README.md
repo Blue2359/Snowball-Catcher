@@ -1,7 +1,7 @@
 # Snowball Catcher
 A game where you collect snowballs, over and over again. Game developed by [Blue2359](https://blue2359.itch.io/), AKA me :p
 
-For the HaxeJam (Winter Jam 2023: Again & Again).
+For the HaxeJam 2023, (Winter Jam: Again & Again).
 
 Play the game here on your web browser: https://blue2359.itch.io/snow-ball-catcher
 
