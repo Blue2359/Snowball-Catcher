@@ -4,6 +4,7 @@ A game where you collect snowballs, over and over again. (HaxeJam Winter Jam 202
 # Images from the game
 ![Alt text](/screenshots/Screenshot_1_SMALL.png)
 ![Alt text](/screenshots/Screenshot_2_SMALL.png)
+![Alt text](/screenshots/Screenshot_4_SMALL.png)
 ![Alt text](/screenshots/Screenshot_3_SMALL.png)
 
 # HaxeJam Logo
