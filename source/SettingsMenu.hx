@@ -95,7 +95,7 @@ class SettingsMenu extends FlxState
 		if (FlxG.keys.anyJustPressed([DOWN, S]))
 			change_selection(1);
 
-        // set a short timer to prevent the user from immedieatly clicking a button when entered the state.
+        // set a short timer to prevent the user from immediately clicking a button when entered the state.
         new FlxTimer().start(0.15, function(tmr:FlxTimer)
 		{
             if (FlxG.keys.anyJustPressed([ENTER, SPACE]))
