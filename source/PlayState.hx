@@ -182,7 +182,7 @@ class PlayState extends FlxState
 
 			if (objA._snowball_type == DEADLY)
 			{
-				if (_score > 0 || _score != 0)
+				if (_score > 0)
 					_score -= 5;
 
 				FlxG.camera.shake(0.03, 0.08);
