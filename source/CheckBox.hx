@@ -11,13 +11,13 @@ enum CheckboxType
 
 class CheckBox extends FlxSprite
 {
-	public var _checkbox_type:CheckboxType;
+	public var type:CheckboxType;
 
 	public function new(x:Float = 0, y:Float = 0, type:CheckboxType)
 	{
 		super(x, y);
 
-		this._checkbox_type = type;
+		this.type = type;
 
 		loadGraphic("assets/images/game/checkbox.png", true, 240, 240);
 		animation.add("active", [0], 1, true);
@@ -32,9 +32,6 @@ class CheckBox extends FlxSprite
 	{
 		super.update(elapsed);
 
-		if (_checkbox_type == DEACTIVE)
-			animation.play("deactive", true);
-		else
-			animation.play("active", true);
+		type == DEACTIVE ? animation.play("deactive", true) : animation.play("active", true);
 	}
 }
