@@ -46,17 +46,17 @@ class MainMenuState extends FlxState
 			_buttons = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic("assets/images/game/buttons/button" + _menu_buttons[i] + ".png");
 			_buttons.ID = i;
 			_buttons.y += (i * 70) + 55;
-			_buttons.x -= 56;
+			_buttons.x -= 55;
 			_menu_button.add(_buttons);
 
 			switch (i)
 			{
 				case 1:
 					_buttons.x -= 15;
+				#if html5
 				case 2:
-					#if html5
 					_buttons.color = 0xff878371;
-					#end
+				#end
 			}
 		}
 
