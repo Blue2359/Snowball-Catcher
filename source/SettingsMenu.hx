@@ -164,26 +164,26 @@ class SettingsMenu extends FlxState
         
         // checkbox one.
         if (SettingsSystem.skip_intro)
-            _checkbox_ONE._checkbox_type = ACTIVE;
+            _checkbox_ONE.type = ACTIVE;
         else
-            _checkbox_ONE._checkbox_type = DEACTIVE;
+            _checkbox_ONE.type = DEACTIVE;
 
         // checkbox two.
         if (SettingsSystem.background_visibility)
-            _checkbox_TWO._checkbox_type = ACTIVE;
+            _checkbox_TWO.type = ACTIVE;
         else
-            _checkbox_TWO._checkbox_type = DEACTIVE;
+            _checkbox_TWO.type = DEACTIVE;
 
         // checkbox three.
         if (SettingsSystem.particles_visibility)
-            _checkbox_THREE._checkbox_type = ACTIVE;
+            _checkbox_THREE.type = ACTIVE;
         else
-            _checkbox_THREE._checkbox_type = DEACTIVE;
+            _checkbox_THREE.type = DEACTIVE;
 
         // checkbox four.
         if (SettingsSystem.endless_mode)
-            _checkbox_FOUR._checkbox_type = ACTIVE;
+            _checkbox_FOUR.type = ACTIVE;
         else
-            _checkbox_FOUR._checkbox_type = DEACTIVE;
+            _checkbox_FOUR.type = DEACTIVE;
 	}
 }
