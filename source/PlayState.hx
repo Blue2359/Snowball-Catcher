@@ -147,6 +147,8 @@ class PlayState extends FlxState
 
 	function spawn_snowball()
 	{
+		// could make this system way better..
+		
 		// 1st snowball
 		if (!_snowball1.alive)
 		{
@@ -155,12 +157,12 @@ class PlayState extends FlxState
 		// 2nd snowball
 		if (!_snowball2.alive)
 		{
-			FlxG.random.bool(30) ? add(_snowball2 = new SnowBall(FlxG.random.int(20, 120), -70, DEADLY)) : add(_snowball1 = new SnowBall(FlxG.random.int(20, 120), -70, NORMAL));
+			FlxG.random.bool(30) ? add(_snowball2 = new SnowBall(FlxG.random.int(20, 120), -70, DEADLY)) : add(_snowball2 = new SnowBall(FlxG.random.int(20, 120), -70, NORMAL));
 		}
 		// 3rd snowball
 		if (!_snowball3.alive)
 		{
-			FlxG.random.bool(30) ? add(_snowball3 = new SnowBall(FlxG.random.int(20, 120), -70, DEADLY)) : add(_snowball1 = new SnowBall(FlxG.random.int(20, 120), -70, NORMAL));
+			FlxG.random.bool(30) ? add(_snowball3 = new SnowBall(FlxG.random.int(20, 120), -70, DEADLY)) : add(_snowball3 = new SnowBall(FlxG.random.int(20, 120), -70, NORMAL));
 		}
 	}
 
