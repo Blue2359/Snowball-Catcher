@@ -43,7 +43,7 @@ class MainMenuState extends FlxState
 
 		for (i in 0..._menu_buttons.length)
 		{
-			_buttons = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic("assets/images/game/buttons/button" + _menu_buttons[i] + ".png");
+			_buttons = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic('assets/images/game/buttons/button${_menu_buttons[i]}.png');
 			_buttons.ID = i;
 			_buttons.y += (i * 70) + 55;
 			_buttons.x -= 55;
@@ -81,20 +81,19 @@ class MainMenuState extends FlxState
 
 		if (FlxG.keys.anyJustPressed([ENTER, SPACE]))
 		{
-			switch (_menu_buttons[_selection]) // do an action for each different selected button.
+			switch (_menu_buttons[_selection]) // do an action for each different chosen button.
 			{
 				case 0:
 					FlxG.switchState(new PlayState());
-					trace("case 0");
 				case 1:
 					FlxG.switchState(new SettingsMenu());
-					trace("case 1");
+				#if !html5
 				case 2:
-					#if !html5
 					System.exit(0);
-					#end
-					trace("case 2"); // i don't think this gets traced.
+				#end
 			}
+					
+			trace('chosen option: ${_menu_buttons[_selection]}');
 		}
 		#end
 	}
@@ -106,15 +105,16 @@ class MainMenuState extends FlxState
 		#if html5
 		if (_selection < 0)
 			_selection = _menu_buttons.length - 2;
-		if (_selection >= _menu_buttons.length - 1)
+		else if (_selection >= _menu_buttons.length - 1)
 			_selection = 0;
 		#else
 		if (_selection < 0)
 			_selection = _menu_buttons.length - 1;
-		if (_selection >= _menu_buttons.length)
+		else if (_selection >= _menu_buttons.length)
 			_selection = 0;
 		#end
 
+		// TODO: Do this with math instead of manually positiong per item.
 		switch (_menu_buttons[_selection]) // re-position _selector.
 		{
 			case 0:
@@ -123,15 +123,13 @@ class MainMenuState extends FlxState
 			case 1:
 				_selector.y = _buttons.y - 65;
 				_selector.x = _buttons.x - 50;
+			#if !html5
 			case 2:
-				#if !html5
 				_selector.y = _buttons.y;
 				_selector.x = _buttons.x - 35;
-				#end
+			#end
 		}
 
-		#if debug
-		trace("chosen option: " + _menu_buttons[_selection]);
-		#end
+		trace('selected option: ${_menu_buttons[_selection]}');
 	}
 }
