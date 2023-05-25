@@ -123,13 +123,9 @@ class PlayState extends FlxState
 
 		// don't allow the _catcher to go off view.
 		if (_catcher.x <= 0)
-		{
 			_catcher.x = 0;
-		}
 		if ((_catcher.x + _catcher.width) > FlxG.width)
-		{
 			_catcher.x = FlxG.width - _catcher.width;
-		}
 
 		FlxG.collide(_snowball1, _catcher, collected_snowball);
 		FlxG.collide(_snowball2, _catcher, collected_snowball);
@@ -141,7 +137,7 @@ class PlayState extends FlxState
 		// update _score_text.
 		_score_text.text = Std.string(_score);
 
-		if (_score < 0) // don't let it go below 0.
+		if (_score < 0) // don't let it go past 0.
 			_score = 0;
 
 		// FlxG.watch.add(_snowball1, "alive", "_snowball1 alive?");
@@ -151,26 +147,20 @@ class PlayState extends FlxState
 
 	function spawn_snowball()
 	{
+		// 1st snowball
 		if (!_snowball1.alive)
 		{
-			if (FlxG.random.bool(30))
-				add(_snowball1 = new SnowBall(FlxG.random.int(20, 120), -70, DEADLY));
-			else
-				add(_snowball1 = new SnowBall(FlxG.random.int(20, 120), -70, NORMAL));
+			FlxG.random.bool(30) ? add(_snowball1 = new SnowBall(FlxG.random.int(20, 120), -70, DEADLY)) : add(_snowball1 = new SnowBall(FlxG.random.int(20, 120), -70, NORMAL));
 		}
+		// 2nd snowball
 		if (!_snowball2.alive)
 		{
-			if (FlxG.random.bool(30))
-				add(_snowball2 = new SnowBall(FlxG.random.int(190, 240), -70, DEADLY));
-			else
-				add(_snowball2 = new SnowBall(FlxG.random.int(190, 240), -70, NORMAL));
+			FlxG.random.bool(30) ? add(_snowball2 = new SnowBall(FlxG.random.int(20, 120), -70, DEADLY)) : add(_snowball1 = new SnowBall(FlxG.random.int(20, 120), -70, NORMAL));
 		}
+		// 3rd snowball
 		if (!_snowball3.alive)
 		{
-			if (FlxG.random.bool(30))
-				add(_snowball3 = new SnowBall(FlxG.random.int(350, 440), -70, DEADLY));
-			else
-				add(_snowball3 = new SnowBall(FlxG.random.int(350, 440), -70, NORMAL));
+			FlxG.random.bool(30) ? add(_snowball3 = new SnowBall(FlxG.random.int(20, 120), -70, DEADLY)) : add(_snowball1 = new SnowBall(FlxG.random.int(20, 120), -70, NORMAL));
 		}
 	}
 
@@ -199,7 +189,7 @@ class PlayState extends FlxState
 
 			if (SettingsSystem.particles_visibility)
 			{
-				var _type_graphic = (if (objA._snowball_type == DEADLY) "assets/images/game/snowball_particles_DEADLY.png" else "assets/images/game/snowball_particles.png");
+				var _type_graphic = (objA._snowball_type == DEADLY ? "assets/images/game/snowball_particles_DEADLY.png" : "assets/images/game/snowball_particles.png");
 				var _snowball_particle:FlxEmitter = new FlxEmitter().loadParticles(_type_graphic, 60, 29, true);
 				_snowball_particle.velocity.set(-200, -200, 200, 200);
 				_snowball_particle.angularVelocity.set(-500, 500);
