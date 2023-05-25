@@ -139,15 +139,15 @@ class EndScreen extends FlxSubState
 
 		if (FlxG.keys.anyJustPressed([ENTER, SPACE]))
 		{
-			switch (_menu_buttons[_selection]) // do an action for each different selected button.
+			switch (_menu_buttons[_selection]) // do an action for each different chosen button.
 			{
 				case 0:
 					FlxG.resetState();
-					trace("case 0");
 				case 1:
 					FlxG.switchState(new MainMenuState());
-					trace("case 1");
 			}
+			
+			trace('chosen option: ${_menu_buttons[_selection]}');
 		}
 		#end
 	}
@@ -161,6 +161,7 @@ class EndScreen extends FlxSubState
 		if (_selection >= _menu_buttons.length)
 			_selection = 0;
 
+		// TODO: Do this with math instead of manually positiong per item.
 		switch (_menu_buttons[_selection]) // re-position _selector.
 		{
 			case 0:
@@ -169,8 +170,6 @@ class EndScreen extends FlxSubState
 				_selector.y = _buttons.y;
 		}
 
-		#if debug
-		trace("chosen option: " + _menu_buttons[_selection]);
-		#end
+		trace('selected option: ${_menu_buttons[_selection]}');
 	}
 }
