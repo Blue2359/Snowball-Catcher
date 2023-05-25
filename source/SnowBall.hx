@@ -17,18 +17,15 @@ class SnowBall extends FlxSprite
 	{
 		super(x, y);
 
-		this._snowball_type = type;
-		var _type_graphic = (if (type == DEADLY) "assets/images/game/snowball_DEADLY.png" else "assets/images/game/snowball.png");
+		_snowball_type = type;
+		var _type_graphic = (type == DEADLY ? "assets/images/game/snowball_DEADLY.png" : "assets/images/game/snowball.png");
 		loadGraphic(_type_graphic);
 		scale.set(0.2, 0.2);
 		antialiasing = false;
 		updateHitbox();
-
-		if (type == DEADLY)
-			velocity.y = 350;
-		else
-			velocity.y = FlxG.random.int(180, 250);
-
+		
+		type == DEADLY ? velocity.y = 350 : velocity.y = FlxG.random.int(180, 250);
+		
 		angle = FlxG.random.int(0, 35);
 	}
 
