@@ -95,12 +95,9 @@ class SettingsMenu extends FlxState
 		if (FlxG.keys.anyJustPressed([DOWN, S]))
 			change_selection(1);
 
-        // set a short timer to prevent the user from immediately clicking a button when entered the state.
-        new FlxTimer().start(0.15, function(tmr:FlxTimer)
-		{
             if (FlxG.keys.anyJustPressed([ENTER, SPACE]))
             {
-                switch (_total_menu_buttons[_selection]) // do an action for each different selected button.
+                switch (_total_menu_buttons[_selection]) // do an action for each different chosen button.
                 {
                     case 0: // Skip Intro.
                         SettingsSystem.skip_intro = !SettingsSystem.skip_intro;
@@ -122,9 +119,9 @@ class SettingsMenu extends FlxState
                         FlxG.switchState(new MainMenuState());
                         trace("went back to main menu from settings.");
                 }
+				
                 SettingsSystem.save_settings();
             }
-        });
 		#end
 
         update_checkboxes();
@@ -139,6 +136,7 @@ class SettingsMenu extends FlxState
 		if (_selection >= _total_menu_buttons.length)
 			_selection = 0;
 
+		// TODO: Do this with math instead of manually positiong per item.
 		switch (_total_menu_buttons[_selection]) // re-position _selector.
 		{
 			case 0: // Skip Intro.
@@ -153,9 +151,7 @@ class SettingsMenu extends FlxState
 				_selector.y = _buttons.y;
 		}
 
-		#if debug
-		trace("chosen option: " + _total_menu_buttons[_selection]);
-		#end
+		trace('selected option: ${_total_menu_buttons[_selection]}');
 	}
 
     function update_checkboxes()
