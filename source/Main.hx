@@ -18,7 +18,7 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
-		addChild(new FlxGame(game_width, game_height, state, zoom, fps, fps, skipHFsplash));
+		addChild(new FlxGame(game_width, game_height, state, #if (flixel < "5.0.0") zoom, #end fps, fps, skipHFsplash));
 
 		#if (desktop || html5)
 		FlxG.mouse.useSystemCursor = true;
